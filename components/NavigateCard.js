@@ -1,29 +1,15 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Image,
-  View,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
-import tw from 'tailwind-react-native-classnames';
-import NavOptions from '../components/NavOptions';
+import { SafeAreaView, StyleSheet, ScrollView, Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_API_KEY } from '@env';
-import { useDispatch } from 'react-redux';
-import { setOrigin, setDestination } from '../slices/navSlice';
+import tw from 'tailwind-react-native-classnames';
 
-const HomeScreen = () => {
-  const dispatch = useDispatch();
-
+const NavigateCard = () => {
   return (
-    <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`p-5`}>
-        <Image
-          style={styles.logo}
-          source={require('../assets/uber-logo.png')}
-        />
+    <SafeAreaView style={tw`bg-white flex-1`}>
+      <Text style={tw`text-center py-5 text-xl`}>Good Morning, XXX</Text>
 
+      <View style={tw`border-t border-gray-200 flex-shrink`}>
         <ScrollView keyboardShouldPersistTaps='always'>
           <GooglePlacesAutocomplete
             placeholder='Where from?'
@@ -57,19 +43,11 @@ const HomeScreen = () => {
             debounce={400}
           />
         </ScrollView>
-
-        <NavOptions />
       </View>
     </SafeAreaView>
   );
 };
 
-export default HomeScreen;
+export default NavigateCard;
 
-const styles = StyleSheet.create({
-  logo: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
-});
+const styles = StyleSheet.create({});
