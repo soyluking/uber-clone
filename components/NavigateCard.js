@@ -24,7 +24,7 @@ const NavigateCard = () => {
               dispatch(
                 setDestination({
                   location: details.geometry.location,
-                  description: details.description,
+                  description: details.description || details.formatted_address,
                 }),
               );
 
