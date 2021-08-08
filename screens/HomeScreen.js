@@ -6,12 +6,13 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import tw from 'tailwind-react-native-classnames';
-import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_API_KEY } from '@env';
 import { useDispatch } from 'react-redux';
 import { setOrigin, setDestination } from '../slices/navSlice';
+import NavOptions from '../components/NavOptions';
+import NavFavorites from '../components/NavFavorites';
+import tw from 'tailwind-react-native-classnames';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const HomeScreen = () => {
               dispatch(
                 setOrigin({
                   location: details.geometry.location,
-                  description: details.description,
+                  description: details.description || details.formatted_address,
                 }),
               );
 
@@ -59,6 +60,8 @@ const HomeScreen = () => {
         </ScrollView>
 
         <NavOptions />
+
+        <NavFavorites />
       </View>
     </SafeAreaView>
   );

@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { setDestination } from '../slices/navSlice';
 import tw from 'tailwind-react-native-classnames';
+import NavFavorites from './NavFavorites';
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,8 @@ const NavigateCard = () => {
           />
         </ScrollView>
       </View>
+
+      <NavFavorites />
     </SafeAreaView>
   );
 };
